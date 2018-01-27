@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en-sg">
+  <!--customized html, css, js by Yang Kaiyuan from Yan Jie Group 2018-->
+  <!-- mmmm   mm   m   mm  
+       #   "m #"m  #   ##  
+       #    # # #m #  #  # 
+       #    # #  # #  #mm# 
+       #mmm"  #   ## #    #-->
+  
+<head>
+  <title>Yan Jie Group</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Prof. Yan Jie's biophysics research group at NUS is proud to have an interdisciplinary team of physicists, life scientists, engineers, and programmers. We welcome collaboration with anyone who share our passion in mechnobiology." />
+  <meta name="keywords" content="single-molecule studies, single molecule biophysics, mechanobiology, magnetic tweezers, biophysics, optical tweezers, atomic force microscope, afm, DNA, mechnosensitive proteins, Yan Jie" />
+  <meta name="author" content="Yang Kaiyuan from Yan Jie Group" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="yjv2.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+
+<body>
+<!-- Sidebar -->
+<nav class="sidebar bar-block collapse animate-left" id="mySidebar">
+  <a class="bar-item button" href="yjv2_Photos.html" title="More lab photos"><img src="Side-barImgEq.jpg" alt="Lab Photos" /></a>
+  <a class="bar-item button hide-large large" onclick="closeSidebar()">Close <span class="xbtn">&times;</span></a>
+  <a class="bar-item button" href="index.html">Home</a>
+  <div><!--Accordion button for Research-->
+    <a class="bar-item button accordion">Research</a>
+    <div class="accPanel">
+      <a class="bar-item button" href="yjv2_Research_Questions.html">Questions</a>
+      <a class="bar-item button" href="yjv2_Research_Hardware.html">Hardware</a>
+      <a class="bar-item button" href="yjv2_Research_Software.html">Software</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <div><!--Accordion button for Group-->
+    <a class="bar-item button accordion active">Group</a>
+    <div class="accPanel" style="display:block">
+      <a class="bar-item button current" href="yjv2_Group_CurrentMembers.html">Current Members</a>
+      <a class="bar-item button" href="yjv2_Group_Alumni.html">Alumni</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <a class="bar-item button" href="yjv2_Publications.html">Publications</a>
+  <a class="bar-item button" href="yjv2_Courses.html">Courses</a>
+  <a class="bar-item button" href="yjv2_Calculator.html">Calculator</a>
+  <a class="bar-item button" href="yjv2_Photos.html">Gallery</a>
+  <a class="bar-item button" href="yjv2_Contact.html">Contact</a>
+</nav>
+
+<!--Overlay for mobile sidebar closing-->
+<div class="overlay animate-opacity" onclick="closeSidebar()" id="myOverlay"></div>
+
+<!-- Page Content -->
+<div class="main" style="max-width:95%">
+
+<div id="myTop" class="container top large">
+  <div class="tristripe" onclick="openSidebar()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div><!--three stripe icon-->
+  <span id="myIntro" class="hidebanner"><a href="index.html" title="Homepage">Yan Jie Group @ NUS</a></span>
+</div><!--end top floating banner-->
+
+<header class="container">
+  <h1>Current Members</h1>
+  <div id="publications"></div>
+</header>
+
+<div class="container">
+
+<!-- Control buttons -->
+<div id="myBtnContainer">
+  <button id="btnAll" class="sortbutton" onclick="filterSelection('all', 'btnAll')">Show all</button>
+  <button id="btnRF" class="sortbutton" onclick="filterSelection('RF', 'btnRF')">Research Fellow</button>
+  <button id="btnPhd" class="sortbutton" onclick="filterSelection('phd', 'btnPhd')">Graduate Student</button>
+  <button id="btnRA" class="sortbutton" onclick="filterSelection('RA', 'btnRA')"> Research Assistant</button>
+  <button id="btnVR" class="sortbutton" onclick="filterSelection('visitingresearcher', 'btnVR')">Visiting Researcher</button>
+</div>
+
+<!--Profile Cards-->
+<!--Profile images put in the backrgound:url(''), 180x180px size images-->
+<!--Filtering by job title, put RA/phd/RF/... in the class="flip-container HERE"-->
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/ChongZhengMin.jpg') 0 0 no-repeat">
+      <span>Chong Zheng Min</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>mbiczmc@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/EfremovArtemCM.jpg') 0 0 no-repeat">
+      <span>Artem Efremov</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>mbiay@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/GulvadyRanjitCM.jpg') 0 0 no-repeat">
+      <span>Gulvady Ranjit</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>ranjit.sg@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/GuoShiwenCM.jpg') 0 0 no-repeat">
+      <span>Guo Shiwen</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>e0001029@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/GuttulaDurgaraoCM.jpg') 0 0 no-repeat">
+      <span>Durgarao Guttula</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>mbigud@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd visitingresearcher" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/HovanLadislavCM.jpg') 0 0 no-repeat">
+      <span>Ladislav Hovan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>t0914574@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/LeShiminCM.jpg') 0 0 no-repeat">
+      <span>Le Shimin</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>leshimin@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container visitingresearcher" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/LiJianjunCM.jpg') 0 0 no-repeat">
+      <span>Li Jianjun</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Visiting Researcher<br /><br /><u>phyv203@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/LiuMeihanCM.jpg') 0 0 no-repeat">
+      <span>Liu Meihan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>mbilmh@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/LuChenCM.jpg') 0 0 no-repeat">
+      <span>Lu Chen</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>luc@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/LuJungHsuanCM.jpg') 0 0 no-repeat">
+      <span>Lu Jung Hsuan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>phyljh@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/defaultCM.jpg') 0 0 no-repeat">
+      <span>Pang Si Ming</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>e0000983@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/TangQingnanCM.jpg') 0 0 no-repeat">
+      <span>Tang Qingnan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>tangqingnan@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/WangYinanCM.jpg') 0 0 no-repeat">
+      <span>Wang Yinan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>a0129458@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/defaultCM.jpg') 0 0 no-repeat">
+      <span>Ricksen Winardhi</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>phyrsw@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/YanJieCM.jpg') 0 0 no-repeat">
+      <span>Yan Jie</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Group Leader<br /><br /><u>phyyj@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/YangKaiyuanCM.jpg') 0 0 no-repeat">
+      <span>Yang Kaiyuan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>yangkaiyuan@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/YuMiaoCM.jpg') 0 0 no-repeat">
+      <span>Yu Miao</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>mbiyum@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/ZhaoXiaodanCM.jpg') 0 0 no-repeat">
+      <span>Zhao Xiaodan</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>mbizhao@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RF" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/defaultCM.jpg') 0 0 no-repeat">
+      <span>Zhao Zhihai</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Fellow<br /><br /><u>phyzzh@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container phd RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/ZhouYuCM.jpg') 0 0 no-repeat">
+      <span>Zhou Yu</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Graduate Student<br /><br /><u>a0129159@u.nus.edu</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+<div class="flip-container RA" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <!-- front content -->
+    <div class="front" style="background:url('photos/people/ZengXiangjunCM.jpg') 0 0 no-repeat">
+      <span>Zeng Xiangjun</span>
+    </div>
+    <!-- back content -->
+    <div class="back">Research Assistant<br /><br /><u>glenn.zeng@nus.edu.sg</u></div>
+  </div>
+</div><!--flip-conatiner-->
+
+</div><!--container-->
+
+<div class="container">
+<p>Last updated: 2018-Jan-17th</p>
+</div>
+
+
+<hr />
+<footer class="container"> 
+  <p>Yan Jie Group @ NUS 
+  <br />
+  <a href="http://www.nus.edu.sg/" title="NUS website" target="_blank">National University of Singapore (NUS)</a>
+  <br />
+  <a href="https://www.physics.nus.edu.sg/" title="NUS Physics website" target="_blank">Department of Physics</a> - <a href="https://mbi.nus.edu.sg/" title="NUS MBI website" target="_blank">Mechanobiology Institute</a> - <a href="https://cbis.nus.edu.sg" title="NUS CBIS website" target="_blank">Centre for BioImaging Sciences</a></p>
+  <p><a href="mailto:kaiyuan@scholarscinema.com?Subject=YanJie%20Site%20Feedback" title="Website Feedback to Kaiyuan">Website</a> front-end upgraded Jan 2018, written in pure HTML, CSS, and JavaScript</p>
+</footer>
+     
+</div><!--main-->
+       
+<script src="yjv2.js"></script>
+<noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
+</body>
+</html> 

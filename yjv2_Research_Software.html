@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-sg">
+  <!--customized html, css, js by Yang Kaiyuan from Yan Jie Group 2018-->
+  <!-- mmmm   mm   m   mm  
+       #   "m #"m  #   ##  
+       #    # # #m #  #  # 
+       #    # #  # #  #mm# 
+       #mmm"  #   ## #    #-->
+  
+<head>
+  <title>Yan Jie Group</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Prof. Yan Jie's biophysics research group at NUS is proud to have an interdisciplinary team of physicists, life scientists, engineers, and programmers. We welcome collaboration with anyone who share our passion in mechnobiology." />
+  <meta name="keywords" content="single-molecule studies, single molecule biophysics, mechanobiology, magnetic tweezers, biophysics, optical tweezers, atomic force microscope, afm, DNA, mechnosensitive proteins, Yan Jie" />
+  <meta name="author" content="Yang Kaiyuan from Yan Jie Group" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="yjv2.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+
+<body>
+<!-- Sidebar -->
+<nav class="sidebar bar-block collapse animate-left" id="mySidebar">
+  <a class="bar-item button" href="yjv2_Photos.html" title="More lab photos"><img src="Side-barImgEq.jpg" alt="Lab Photos" /></a>
+  <a class="bar-item button hide-large large" onclick="closeSidebar()">Close <span class="xbtn">&times;</span></a>
+  <a class="bar-item button" href="index.html">Home</a>
+  <div><!--Accordion button for Research-->
+    <a class="bar-item button accordion active">Research</a>
+    <div class="accPanel" style="display:block">
+      <a class="bar-item button" href="yjv2_Research_Questions.html">Questions</a>
+      <a class="bar-item button" href="yjv2_Research_Hardware.html">Hardware</a>
+      <a class="bar-item button current" href="yjv2_Research_Software.html">Software</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <div><!--Accordion button for Group-->
+    <a class="bar-item button accordion">Group</a>
+    <div class="accPanel">
+      <a class="bar-item button" href="yjv2_Group_CurrentMembers.html">Current Members</a>
+      <a class="bar-item button" href="yjv2_Group_Alumni.html">Alumni</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <a class="bar-item button" href="yjv2_Publications.html">Publications</a>
+  <a class="bar-item button" href="yjv2_Courses.html">Courses</a>
+  <a class="bar-item button" href="yjv2_Calculator.html">Calculator</a>
+  <a class="bar-item button" href="yjv2_Photos.html">Gallery</a>
+  <a class="bar-item button" href="yjv2_Contact.html">Contact</a>
+</nav>
+
+<!--Overlay for mobile sidebar closing-->
+<div class="overlay animate-opacity" onclick="closeSidebar()" id="myOverlay"></div>
+
+<!-- Page Content -->
+<div class="main">
+
+<div id="myTop" class="container top large">
+  <div class="tristripe" onclick="openSidebar()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div><!--three stripe icon-->
+  <span id="myIntro" class="hidebanner"><a href="index.html" title="Homepage">Yan Jie Group @ NUS</a></span>
+</div><!--end top floating banner-->
+
+<header class="container">
+  <pre>
+:'######:::'#######::'########:'########:'##:::::'##::::'###::::'########::'########:
+'##... ##:'##.... ##: ##.....::... ##..:: ##:'##: ##:::'## ##::: ##.... ##: ##.....::
+ ##:::..:: ##:::: ##: ##:::::::::: ##:::: ##: ##: ##::'##:. ##:: ##:::: ##: ##:::::::
+. ######:: ##:::: ##: ######:::::: ##:::: ##: ##: ##:'##:::. ##: ########:: ######:::
+:..... ##: ##:::: ##: ##...::::::: ##:::: ##: ##: ##: #########: ##.. ##::: ##...::::
+'##::: ##: ##:::: ##: ##:::::::::: ##:::: ##: ##: ##: ##.... ##: ##::. ##:: ##:::::::
+. ######::. #######:: ##:::::::::: ##::::. ###. ###:: ##:::: ##: ##:::. ##: ########:
+:......::::.......:::..:::::::::::..::::::...::...:::..:::::..::..:::::..::........::
+  </pre>
+  <h1>Software</h1>
+  <div id="researchQ" onclick="showSnackbar()"></div>
+</header>
+
+<!--Click to show snackbar-->
+<div id="snackbar">People who are really serious about software should make their own hardware.</div>
+
+<div class="container">
+  <h3>LabVIEW program to control magnetic tweezers</h3>
+  <div class="quarter"><img class="researchpage" src="photos/research/software/labviewlogo.jpg" alt="labviewlogo" /></div>
+  <div class="threequarter"><img class="researchpage" src="photos/research/software/mtsc.jpg" alt="labviewsoftware" /></div>
+  <p>Our group has a series of customized LabVIEW programs for tracking magnetic particles both in vertical and transverse magnetic tweezers. The main contributors for the core of the software are Chen Hu, Lim Ci Ji, and Yan Jie. Other contributors over the years are Yao Mingxi, Lu Chen, Ricksen Winardhi, Ryo Kawamura, and Zeng Xiangjun. Currently Lu Chen is developing a new version to control the motor for transverse magnetic tweezers. And Zeng Xiangjun is working on a drug-screening automation machine, based on the vertical magnetic tweezers and the LabVIEW program. We welcome discussions on LabVIEW development for biophysics research, and the basic version of the source code is available upon request.</p>  
+</div><!--container-->
+
+<div class="container">
+  <h3>Matlab program to determine persistence length of DNA</h3>
+  <div class="quarter"><img class="researchpage" src="photos/research/software/MATLABlogo.jpg" alt="matlablogo" /></div>
+  <div class="threequarter"><img class="researchpage" src="photos/research/software/matlabscript.jpg" alt="matlabscript" /></div>
+  <p>Cong Peiwen wrote the matlab program to determine the centreline of DNA and thus able to calculate the persistence length of DNA. This matlab program has been used to measure DNA persistence length from AFM images both in Yan Jie's teaching course, as well as in the Soft Matter <a href="https://doi.org/10.1039/C4SM02025A" title="AFMDNApaper" target="_blank">paper</a> published in 2014. The source code of the Matlab script is available for download <a href="Softwares/AFM_analysis_software_CongPW.zip" title="sourceCodePeiwen" target="_blank">here</a>.
+</div><!--container-->
+
+<div class="container">
+  <h3>Python-OpenCV script to measure rotation angle of asymmetric magnetic particles</h3>
+  <div class="quarter"><img class="researchpage" src="photos/research/software/opencvlogo.jpg" alt="opencvlogo" /></div>
+  <div class="threequarter"><img class="researchpage" src="photos/research/software/opencvsampleoutput.jpg" alt="opencvSampleOutput" style="width:80%;" /></div>
+  <p>In order to determine the rotation angle of an asymmetrical magnetic particles, for example, a dimer of two different sizes, Ryo Kawamura wrote a Python script based on the OpenCV libraries. The Python code uses eigenvector from Principle Component Analysis in OpenCV library. The script is available for download <a href="Softwares/OpenCV_Python_RotationDetection.py" title="PythonCode" target="_blank">here</a>.  
+</div><!--container-->
+
+<hr />
+<footer class="container"> 
+  <p>Yan Jie Group @ NUS 
+  <br />
+  <a href="http://www.nus.edu.sg/" title="NUS website" target="_blank">National University of Singapore (NUS)</a>
+  <br />
+  <a href="https://www.physics.nus.edu.sg/" title="NUS Physics website" target="_blank">Department of Physics</a> - <a href="https://mbi.nus.edu.sg/" title="NUS MBI website" target="_blank">Mechanobiology Institute</a> - <a href="https://cbis.nus.edu.sg" title="NUS CBIS website" target="_blank">Centre for BioImaging Sciences</a></p>
+  <p><a href="mailto:kaiyuan@scholarscinema.com?Subject=YanJie%20Site%20Feedback" title="Website Feedback to Kaiyuan">Website</a> front-end upgraded Jan 2018, written in pure HTML, CSS, and JavaScript</p>
+</footer>
+     
+</div><!--main-->
+       
+<script src="yjv2.js"></script>
+<noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
+</body>
+</html> 

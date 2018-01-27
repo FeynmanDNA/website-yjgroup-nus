@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en-sg">
+  <!--customized html, css, js by Yang Kaiyuan from Yan Jie Group 2018-->
+  <!-- mmmm   mm   m   mm  
+       #   "m #"m  #   ##  
+       #    # # #m #  #  # 
+       #    # #  # #  #mm# 
+       #mmm"  #   ## #    #-->
+  
+<head>
+  <title>Yan Jie Group</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Prof. Yan Jie's biophysics research group at NUS is proud to have an interdisciplinary team of physicists, life scientists, engineers, and programmers. We welcome collaboration with anyone who share our passion in mechnobiology." />
+  <meta name="keywords" content="single-molecule studies, single molecule biophysics, mechanobiology, magnetic tweezers, biophysics, optical tweezers, atomic force microscope, afm, DNA, mechnosensitive proteins, Yan Jie" />
+  <meta name="author" content="Yang Kaiyuan from Yan Jie Group" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="yjv2.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+
+<body>
+<!-- Sidebar -->
+<nav class="sidebar bar-block collapse animate-left" id="mySidebar">
+  <a class="bar-item button" href="yjv2_Photos.html" title="More lab photos"><img src="Side-barImgEq.jpg" alt="Lab Photos" /></a>
+  <a class="bar-item button hide-large large" onclick="closeSidebar()">Close <span class="xbtn">&times;</span></a>
+  <a class="bar-item button" href="index.html">Home</a>
+  <div><!--Accordion button for Research-->
+    <a class="bar-item button accordion">Research</a>
+    <div class="accPanel">
+      <a class="bar-item button" href="yjv2_Research_Questions.html">Questions</a>
+      <a class="bar-item button" href="yjv2_Research_Hardware.html">Hardware</a>
+      <a class="bar-item button" href="yjv2_Research_Software.html">Software</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <div><!--Accordion button for Group-->
+    <a class="bar-item button accordion">Group</a>
+    <div class="accPanel">
+      <a class="bar-item button" href="yjv2_Group_CurrentMembers.html">Current Members</a>
+      <a class="bar-item button" href="yjv2_Group_Alumni.html">Alumni</a>
+    </div><!--end dropdown-->
+  </div><!--end accordion-->
+  <a class="bar-item button" href="yjv2_Publications.html">Publications</a>
+  <a class="bar-item button" href="yjv2_Courses.html">Courses</a>
+  <a class="bar-item button" href="yjv2_Calculator.html">Calculator</a>
+  <a class="bar-item button current" href="yjv2_Photos.html">Gallery</a>
+  <a class="bar-item button" href="yjv2_Contact.html">Contact</a>
+</nav>
+
+<!--Overlay for mobile sidebar closing-->
+<div class="overlay animate-opacity" onclick="closeSidebar()" id="myOverlay"></div>
+
+<!-- Page Content -->
+<div class="main" style="max-width:95%">
+
+<div id="myTop" class="container top large">
+  <div class="tristripe" onclick="openSidebar()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div><!--three stripe icon-->
+  <span id="myIntro" class="hidebanner"><a href="index.html" title="Homepage">Yan Jie Group @ NUS</a></span>
+</div><!--end top floating banner-->
+
+<header class="container">
+  <h1>Group Photos</h1>
+  <div id="photopageAni"></div>
+</header>
+
+<div class="container">
+
+<h2>Gallery</h2>
+
+<p>Photos from all these years.
+<br />
+Press left and right arrow keys to navigate the slideshow, "q" or Esc to quit.</p>
+
+<!-- Photo Grid -->
+<div class="photorow"> 
+  <div class="photocolumn">
+    <img src="photos/2015Dec.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="2015Dec" />
+    <img src="photos/2015Dec2.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow" alt="2015Dec2" />
+    <img src="photos/2015group1.jpg" onclick="openModal();currentSlide(9)" class="hover-shadow" alt="2015group1" />
+    <img src="photos/20121.jpg" onclick="openModal();currentSlide(13)" class="hover-shadow" alt="20121" />
+    <img src="photos/20141.jpg" onclick="openModal();currentSlide(17)" class="hover-shadow" alt="20141" />
+    <img src="photos/20142.jpg" onclick="openModal();currentSlide(21)" class="hover-shadow" alt="20142" />
+    <img src="photos/20143.jpg" onclick="openModal();currentSlide(25)" class="hover-shadow" alt="20143" />
+    <img src="photos/20144.jpg" onclick="openModal();currentSlide(29)" class="hover-shadow" alt="20144" />
+    <img src="photos/20153.jpg" onclick="openModal();currentSlide(33)" class="hover-shadow" alt="20153" />
+    <img src="photos/20154.jpg" onclick="openModal();currentSlide(37)" class="hover-shadow" alt="20154" />
+    <img src="photos/YJbeforeNUS.jpg" onclick="openModal();currentSlide(41)" class="hover-shadow" alt="YJbeforeNUS" />
+    <img src="photos/youtubesc3.jpg" onclick="openModal();currentSlide(45)" class="hover-shadow" alt="youtubesc3" />
+  </div>
+
+  <div class="photocolumn">
+    <img src="photos/20161.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="20161" />
+    <img src="photos/20162.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow" alt="20162" />
+    <img src="photos/20163.jpg" onclick="openModal();currentSlide(10)" class="hover-shadow" alt="20163" />
+    <img src="photos/20164.jpg" onclick="openModal();currentSlide(14)" class="hover-shadow" alt="20164" />
+    <img src="photos/mtryo.jpg" onclick="openModal();currentSlide(18)" class="hover-shadow" alt="mtryo" />
+    <img src="photos/CBISentrance.jpg" onclick="openModal();currentSlide(22)" class="hover-shadow" alt="CBISentrance" />
+    <img src="photos/s16office.jpg" onclick="openModal();currentSlide(26)" class="hover-shadow" alt="s16office" />
+    <img src="photos/cbisoffice.jpg" onclick="openModal();currentSlide(30)" class="hover-shadow" alt="cbisoffice" />
+    <img src="photos/cbisoutside.jpg" onclick="openModal();currentSlide(34)" class="hover-shadow" alt="cbisoutside" />
+    <img src="photos/cbisstar.jpg" onclick="openModal();currentSlide(38)" class="hover-shadow" alt="cbisstar" />
+    <img src="photos/YJduringnus.jpg" onclick="openModal();currentSlide(42)" class="hover-shadow" alt="YJduringnus" />
+    <img src="photos/youtubesc4.jpg" onclick="openModal();currentSlide(46)" class="hover-shadow" alt="youtubesc4" />
+  </div> 
+
+  <div class="photocolumn">
+    <img src="photos/group0.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="group0" />
+    <img src="photos/group3.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow" alt="group3" />
+    <img src="photos/group4.jpg" onclick="openModal();currentSlide(11)" class="hover-shadow" alt="group4" />
+    <img src="photos/labmanual.jpg" onclick="openModal();currentSlide(15)" class="hover-shadow" alt="labmanual" />
+    <img src="photos/labmeeting1.jpg" onclick="openModal();currentSlide(19)" class="hover-shadow" alt="labmeeting1" />
+    <img src="photos/labmeeting2.jpg" onclick="openModal();currentSlide(23)" class="hover-shadow" alt="labmeeting2" />
+    <img src="photos/labmeetingmbi.jpg" onclick="openModal();currentSlide(27)" class="hover-shadow" alt="labmeetingmbi" />
+    <img src="photos/labmeetingntu.jpg" onclick="openModal();currentSlide(31)" class="hover-shadow" alt="labmeetingntu" />
+    <img src="photos/lectureartem.jpg" onclick="openModal();currentSlide(35)" class="hover-shadow" alt="lecturerartem" />
+    <img src="photos/mbilab.jpg" onclick="openModal();currentSlide(39)" class="hover-shadow" alt="mbilab" />
+    <img src="photos/youtubesc1.jpg" onclick="openModal();currentSlide(43)" class="hover-shadow" alt="youtubesc1" />
+  </div>
+
+  <div class="photocolumn">
+    <img src="photos/mbioffice.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="mbioffice" />
+    <img src="photos/microscopething.jpg" onclick="openModal();currentSlide(8)" class="hover-shadow" alt="micscroscopething" />
+    <img src="photos/oldJielab1.jpg" onclick="openModal();currentSlide(12)" class="hover-shadow" alt="oldJielab1" />
+    <img src="photos/oldjielab2.jpg" onclick="openModal();currentSlide(16)" class="hover-shadow" alt="oldjielab2" />
+    <img src="photos/plasmacleaner.jpg" onclick="openModal();currentSlide(20)" class="hover-shadow" alt="plasmacleaner" />
+    <img src="photos/retreat1.jpg" onclick="openModal();currentSlide(24)" class="hover-shadow" alt="retreat1" />
+    <img src="photos/retreat2.jpg" onclick="openModal();currentSlide(28)" class="hover-shadow" alt="retreat2" />
+    <img src="photos/retreat3.jpg" onclick="openModal();currentSlide(32)" class="hover-shadow" alt="retreat3" />
+    <img src="photos/zhaosafety.jpg" onclick="openModal();currentSlide(36)" class="hover-shadow" alt="zhaosafety" />
+    <img src="photos/YJLecturer.jpg" onclick="openModal();currentSlide(40)" class="hover-shadow" alt="YJLecturer" />
+    <img src="photos/youtubesc2.jpg" onclick="openModal();currentSlide(44)" class="hover-shadow" alt="youtubesc2" />
+  </div>
+</div><!--photorow-->
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="lightboxclose" onclick="closeModal()">&times;</span>
+  <div class="modal-content" onmouseover="showPhotoArrow()" onmouseout="hidePhotoArrow()">
+
+    <!--the slideshow appears in the sequence specified by the currentSlide(n)-->
+    <div class="mySlides"><!--n=1-->
+      <img src="photos/2015Dec.jpg" alt="BBQ 2015" />
+    </div>
+    <div class="mySlides"><!--n=2-->
+      <img src="photos/20161.jpg" alt="Lunch at YIH Starbucks" /> 
+    </div>
+    <div class="mySlides"><!--n=3-->
+      <img src="photos/group0.jpg" alt="Group lunch" /> 
+    </div>
+    <div class="mySlides"><!--n=4-->
+      <img src="photos/mbioffice.jpg" alt="Office at MBI" /> 
+    </div>
+    <div class="mySlides"><!--n=5-->
+      <img src="photos/2015Dec2.jpg" alt="Eating away" /> 
+    </div>
+    <div class="mySlides"><!--n=6-->
+      <img src="photos/20162.jpg" alt="Beer 2016" /> 
+    </div>
+    <div class="mySlides"><!--n=7-->
+      <img src="photos/group3.jpg" alt="Group photo" /> 
+    </div>
+    <div class="mySlides"><!--n=8-->
+      <img src="photos/microscopething.jpg" alt="Microscope thing" /> 
+    </div>
+    <div class="mySlides"><!--n=9-->
+      <img src="photos/2015group1.jpg" alt="Group 2015" /> 
+    </div>
+    <div class="mySlides"><!--n=10-->
+      <img src="photos/20163.jpg" alt="Dinner Utown 2016" /> 
+    </div>
+    <div class="mySlides"><!--n=11-->
+      <img src="photos/group4.jpg" alt="Retreat to island" /> 
+    </div>
+    <div class="mySlides"><!--n=12-->
+      <img src="photos/oldJielab1.jpg" alt="Long time ago" /> 
+    </div>
+    <div class="mySlides"><!--n=13-->
+      <img src="photos/20121.jpg" alt="Group 2012" /> 
+    </div>
+    <div class="mySlides"><!--n=14-->
+      <img src="photos/20164.jpg" alt="Retreat 2016" /> 
+    </div>
+    <div class="mySlides"><!--n=15-->
+      <img src="photos/labmanual.jpg" alt="Members teaching each other how to make a channel, by cartoon" /> 
+    </div>
+    <div class="mySlides"><!--n=16-->
+      <img src="photos/oldjielab2.jpg" alt="Long long time ago" /> 
+    </div>
+    <div class="mySlides"><!--n=17-->
+      <img src="photos/20141.jpg" alt="Retreat 2014" /> 
+    </div>
+    <div class="mySlides"><!--n=18-->
+      <img src="photos/mtryo.jpg" alt="Momotaro from Okayama" /> 
+    </div>
+    <div class="mySlides"><!--n=19-->
+      <img src="photos/labmeeting1.jpg" alt="Lab meeting" /> 
+    </div>
+    <div class="mySlides"><!--n=20-->
+      <img src="photos/plasmacleaner.jpg" alt="Secret to how we clean our coverslips" /> 
+    </div>
+    <div class="mySlides"><!--n=21-->
+      <img src="photos/20142.jpg" alt="Retreat 2014" /> 
+    </div>
+    <div class="mySlides"><!--n=22-->
+      <img src="photos/CBISentrance.jpg" alt="CBIS" /> 
+    </div>
+    <div class="mySlides"><!--n=23-->
+      <img src="photos/labmeeting2.jpg" alt="Lab meeting" /> 
+    </div>
+    <div class="mySlides"><!--n=24-->
+      <img src="photos/retreat1.jpg" alt="Retreat volleyball" /> 
+    </div>
+    <div class="mySlides"><!--n=25-->
+      <img src="photos/20143.jpg" alt="Group 2014" /> 
+    </div>
+    <div class="mySlides"><!--n=26-->
+      <img src="photos/s16office.jpg" alt="Office at S16" /> 
+    </div>
+    <div class="mySlides"><!--n=27-->
+      <img src="photos/labmeetingmbi.jpg" alt="MBI seminar" /> 
+    </div>
+    <div class="mySlides"><!--n=28-->
+      <img src="photos/retreat2.jpg" alt="Retreat" /> 
+    </div>
+    <div class="mySlides"><!--n=29-->
+      <img src="photos/20144.jpg" alt="Group 2014" /> 
+    </div>
+    <div class="mySlides"><!--n=30-->
+      <img src="photos/cbisoffice.jpg" alt="Free Nature" /> 
+    </div>
+    <div class="mySlides"><!--n=31-->
+      <img src="photos/labmeetingntu.jpg" alt="Tier3 meeting at NTU" /> 
+    </div>
+    <div class="mySlides"><!--n=32-->
+      <img src="photos/retreat3.jpg" alt="Retreat" /> 
+    </div>
+    <div class="mySlides"><!--n=33-->
+      <img src="photos/20153.jpg" alt="Group 2015" /> 
+    </div>
+    <div class="mySlides"><!--n=34-->
+      <img src="photos/cbisoutside.jpg" alt="Green linkway to CBIS" /> 
+    </div>
+    <div class="mySlides"><!--n=35-->
+      <img src="photos/lectureartem.jpg" alt="Lecturer Artem teaching Prof Yan Jie" /> 
+    </div>
+    <div class="mySlides"><!--n=36-->
+      <img src="photos/zhaosafety.jpg" alt="We are in safe hands" /> 
+    </div>
+    <div class="mySlides"><!--n=37-->
+      <img src="photos/20154.jpg" alt="Group 2015" /> 
+    </div>
+    <div class="mySlides"><!--n=38-->
+      <img src="photos/cbisstar.jpg" alt="Singaporean singer Kit Chan trying research in CBIS" /> 
+    </div>
+    <div class="mySlides"><!--n=39-->
+      <img src="photos/mbilab.jpg" alt="Sign of creativity" /> 
+    </div>
+    <div class="mySlides"><!--n=40-->
+      <img src="photos/YJLecturer.jpg" alt="Lecturer Yan Jie" /> 
+    </div>
+    <div class="mySlides"><!--n=41-->
+      <img src="photos/YJbeforeNUS.jpg" alt="Yan Jie when he first joined NUS" /> 
+    </div>
+    <div class="mySlides"><!--n=42-->
+      <img src="photos/YJduringnus.jpg" alt="Yan Jie after 10 years in NUS" /> 
+    </div>
+    <div class="mySlides"><!--n=43-->
+      <img src="photos/youtubesc1.jpg" alt="We are on YouTube! https://www.youtube.com/watch?v=8QfnB6T8g1Y&feature=youtu.be" /> 
+    </div>
+    <div class="mySlides"><!--n=44-->
+      <img src="photos/youtubesc2.jpg" alt="YouTube: https://www.youtube.com/watch?v=8QfnB6T8g1Y&feature=youtu.be" /> 
+    </div>
+    <div class="mySlides"><!--n=45-->
+      <img src="photos/youtubesc3.jpg" alt="YouTube: https://www.youtube.com/watch?v=8QfnB6T8g1Y&feature=youtu.be" /> 
+    </div>
+    <div class="mySlides"><!--n=46-->
+      <img src="photos/youtubesc4.jpg" alt="We are on YouTube! https://www.youtube.com/watch?v=8QfnB6T8g1Y&feature=youtu.be" /> 
+    </div>
+
+    <!-- Next/previous controls -->
+    <a id="showarrow1" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a id="showarrow2" class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+  </div><!--modal content-->
+</div><!--modal-->
+
+
+
+<hr />
+<footer class="container"> 
+  <p>Yan Jie Group @ NUS 
+  <br />
+  <a href="http://www.nus.edu.sg/" title="NUS website" target="_blank">National University of Singapore (NUS)</a>
+  <br />
+  <a href="https://www.physics.nus.edu.sg/" title="NUS Physics website" target="_blank">Department of Physics</a> - <a href="https://mbi.nus.edu.sg/" title="NUS MBI website" target="_blank">Mechanobiology Institute</a> - <a href="https://cbis.nus.edu.sg" title="NUS CBIS website" target="_blank">Centre for BioImaging Sciences</a></p>
+  <p><a href="mailto:kaiyuan@scholarscinema.com?Subject=YanJie%20Site%20Feedback" title="Website Feedback to Kaiyuan">Website</a> front-end upgraded Jan 2018, written in pure HTML, CSS, and JavaScript</p>
+</footer>
+     
+</div><!--main-->
+       
+<script src="yjv2.js"></script>
+<noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
+</body>
+</html> 
