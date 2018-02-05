@@ -16,6 +16,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type=text/javascript>
+    $(function() {
+        $('a#process_input').bind('click', function() {
+            $.getJSON('http://scholarscinema.com/aftersubmit', {
+                proglang: $('input[name="proglang"]').val(),
+            }, function(data) {
+                $("#result").text(data.result);
+            });
+            return false;
+        });
+    });
+  </script>
+
 </head>
 
 
@@ -74,6 +89,10 @@
 <p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="https://doi.org/10.3390/polym9020074" title="doi" target="_blank">link</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="https://doi.org/10.1103/PhysRevE.94.032404" title="doi" target="_blank">link</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters in the upcoming paper, to be published in 2018.</p>
 
 <p>This page is the online implementation of the transfer matrix computation developed above. The online calculator is still in development. We hope to roll out the online calculation feature by mid-April. </p>
+
+<input type=text size=1 name=proglang>
+<a href="#"id=process_input><button>Submit</button></a>
+<p id="result">...</p>
 
 <hr />
 <footer class="container"> 
