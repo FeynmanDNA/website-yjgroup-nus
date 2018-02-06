@@ -24,7 +24,7 @@
   <script type=text/javascript>
     $(function() {
         $('a#process_input').bind('click', function() {
-            $.getJSON('https://137.132.69.48/jsontest', {
+            $.getJSON('https://137.132.69.48:7717/jsontest', {
                 proglang: $('input[name="proglang"]').val(),
             }, function(data) {
                 $("#result").text(data.result);
