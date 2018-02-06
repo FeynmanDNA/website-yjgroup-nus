@@ -21,7 +21,7 @@
   <script type=text/javascript>
     $(function() {
         $('a#process_input').bind('click', function() {
-            $.getJSON('http://scholarscinema.com/aftersubmit', {
+            $.getJSON('http://137.132.69.48/jsontest', {
                 proglang: $('input[name="proglang"]').val(),
             }, function(data) {
                 $("#result").text(data.result);
