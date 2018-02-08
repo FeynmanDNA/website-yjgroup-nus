@@ -6,7 +6,7 @@
        #    # # #m #  #  # 
        #    # #  # #  #mm# 
        #mmm"  #   ## #    #-->
-  
+
 <head>
   <title>Yan Jie Group</title>
   <meta charset="UTF-8" />
@@ -16,26 +16,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
-
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script type=text/javascript>
-    $(function() {
-        $('a#process_input').bind('click', function() {
-            $.getJSON('https://137.132.69.48:7717/jsontest', {
-                proglang: $('input[name="proglang"]').val(),
-            }, function(data) {
-                $("#result").text(data.result);
-            });
-            return false;
-        });
-    });
-  </script>
-
+<style>
+  input[type="submit"]:disabled {
+    color: red;
+    cursor:none;
+  }
+  input[type="submit"]:disabled:hover {
+    background-color:white;
+    color:red;
+  }
+</style>
 </head>
-
 
 <body>
 <!-- Sidebar -->
@@ -95,24 +86,34 @@
 
 <p>======================================================================</p>
 <pre>This section is for development testing:</pre>
-<input type=text size=1 name=proglang>
-<a href="#"id=process_input><button>Submit</button></a>
-<p id="result">...</p>
+<p>TransMaxCal program calculates the DNA extension, linking number and structural state under given force and torque constraints</p>
+<form>
+  DNA_length - DNA length in B-DNA state in [nm] units:<br />
+  <input type="text" id="DNAlength" name="DNAlength" placeholder="<1000nm" onkeyup="checkRequirement()" style="border: 2px solid #000;" /><br />
+  Force - in [pN] units:<br />
+  <input type="text" id="force" name="force" placeholder="<1000pN" onkeyup="checkRequirement()" style="border: 2px solid #000;" /><br />
+  Torque - in [pN*nm] units:<br />
+  <input type="text" id="torque" name="torque" placeholder="<100pNnm" onkeyup="checkRequirement()" style="border: 2px solid #000;" /><br />
+  max_mode - number of modes taken into account in the transfer matrix calculations (default = 14)<br />
+  <input type="text" id="maxMode" name="maxMode" value="14" READONLY /><br />
+
+  <input type="submit" id="calbtn" onclick="newCalwindow()" value="Calculate" class="sortbutton" disabled />
+</form>
 <p>======================================================================</p>
 
 <hr />
-<footer class="container"> 
-  <p>Yan Jie Group @ NUS 
+<footer class="container">
+  <p>Yan Jie Group @ NUS
   <br />
   <a href="http://www.nus.edu.sg/" title="NUS website" target="_blank">National University of Singapore (NUS)</a>
   <br />
   <a href="https://www.physics.nus.edu.sg/" title="NUS Physics website" target="_blank">Department of Physics</a> - <a href="https://mbi.nus.edu.sg/" title="NUS MBI website" target="_blank">Mechanobiology Institute</a> - <a href="https://cbis.nus.edu.sg" title="NUS CBIS website" target="_blank">Centre for BioImaging Sciences</a></p>
   <p><a href="mailto:kaiyuan@scholarscinema.com?Subject=YanJie%20Site%20Feedback" title="Website Feedback to Kaiyuan">Website</a> front-end upgraded Jan 2018, written in pure HTML, CSS, and JavaScript</p>
 </footer>
-     
+
 </div><!--container-->
 </div><!--main-->
-       
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48967212-2"></script>
 <script>
@@ -123,6 +124,31 @@
   gtag('config', 'UA-48967212-2');
 </script>
 <script src="yjv2.js"></script>
+<script>
+function newCalwindow() {
+    var myWindow = window.open(
+        "http://137.132.69.48:7717/jsontest",
+        "_blank",
+        "toolbar=yes,scrollbars=yes,resizable=yes,top=10,left=10,width=400,height=400"
+    );
+}
+
+function checkRequirement() {
+    Force = document.getElementById('force');
+    Torque = document.getElementById('torque');
+    DNA_length = document.getElementById('DNAlength');
+    isNumber = /^[0-9]+$/;
+    CalBtn = document.getElementById('calbtn');
+    CalBtn.disabled = !(
+        DNA_length.value.match(isNumber) &&
+        DNA_length.value.length <4 &&
+        Force.value.match(isNumber) &&
+        Force.value.length <4 &&
+        Torque.value.match(isNumber) &&
+        Torque.value.length <3
+    );
+}
+</script>
 <noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
 </body>
-</html> 
+</html>
