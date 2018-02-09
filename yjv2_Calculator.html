@@ -146,7 +146,9 @@ function checkRequirement() {
     var CalBtn = document.getElementById('calbtn');
     CalBtn.disabled = !(
         DNA_length <1000 &&
+        DNA_length >0 &&
         Force <30 &&
+        Force >0 && 
         Torque <=50 &&
         Torque >=-30
     );
