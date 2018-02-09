@@ -89,11 +89,11 @@
 <p>TransMaxCal program calculates the DNA extension, linking number and structural state under given force and torque constraints</p>
 
   DNA_length - DNA length in B-DNA state in [0~1000nm] units:<br />
-  <input type="number" id="DNAlength" name="DNAlength" placeholder="<1000nm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
+  <input type="number" id="DNAlength" name="DNAlength" step="any" placeholder="<1000nm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Force - in [0~30pN] units:<br />
-  <input type="number" id="force" name="force" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
+  <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Torque - in [-30~+50pN*nm] units:<br />
-  <input type="number" id="torque" name="torque" placeholder="-30~50pNnm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
+  <input type="number" id="torque" name="torque" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   max_mode - number of modes taken into account in the transfer matrix calculations (default = 14)<br />
   <input type="text" id="maxMode" name="maxMode" value="14" style="width:80%; border: 2px solid #000;" READONLY /><br />
 
