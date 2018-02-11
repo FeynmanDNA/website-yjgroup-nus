@@ -39,21 +39,20 @@
     <div class="accPanel">
       <a class="bar-item button" href="yjv2_Research_Questions.html">Questions</a>
       <a class="bar-item button" href="yjv2_Research_Hardware.html">Hardware</a>
-      <a class="bar-item button" href="yjv2_Research_Software.html">Software</a>
     </div><!--end dropdown-->
   </div><!--end accordion-->
   <div><!--Accordion button for Group-->
     <a class="bar-item button accordion">Group</a>
     <div class="accPanel">
       <a class="bar-item button" href="yjv2_Group_CurrentMembers.html">Current Members</a>
-      <a class="bar-item button" href="yjv2_Group_Alumni.html">Alumni</a>
+      <a class="bar-item button" href="yjv2_Group_Alumni.html">Former Members</a>
     </div><!--end dropdown-->
   </div><!--end accordion-->
   <a class="bar-item button" href="yjv2_Publications.html">Publications</a>
-  <a class="bar-item button" href="yjv2_Courses.html">Courses</a>
   <a class="bar-item button current" href="yjv2_Calculator.html">Calculator</a>
   <a class="bar-item button" href="yjv2_Photos.html">Gallery</a>
   <a class="bar-item button" href="yjv2_Contact.html">Contact</a>
+  <a class="bar-item button" href="yjv2_News.html">News</a>
 </nav>
 
 <!--Overlay for mobile sidebar closing-->
@@ -82,14 +81,14 @@
 
 <p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="https://doi.org/10.3390/polym9020074" title="doi" target="_blank">link</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="https://doi.org/10.1103/PhysRevE.94.032404" title="doi" target="_blank">link</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters in the upcoming paper, to be published in 2018.</p>
 
-<p>This page is the online implementation of the transfer matrix computation developed above. The online calculator is still in development. We hope to roll out the online calculation feature by mid-April. </p>
+<p>This page is the online implementation of the transfer matrix computation developed above. The online calculator is still in development. We hope to roll out the online calculation feature by <b>mid-April.</b> </p>
 
 <hr />
-<pre>This section is for development testing:</pre>
+<pre>This version is for development testing:</pre>
 <p>TransMaxCal program calculates the DNA extension, linking number and structural state under given force and torque constraints</p>
 
-  DNA_length - DNA length in B-DNA state in [0~1000nm] units:<br />
-  <input type="number" id="DNAlength" name="DNAlength" step="any" placeholder="<1000nm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
+DNA_length - DNA length in B-DNA state in [&gt;0nm] units:<br />
+  <input type="number" id="DNAlength" name="DNAlength" step="any" placeholder=">0nm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Force - in [0~30pN] units:<br />
   <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Torque - in [-30~+50pN*nm] units:<br />
