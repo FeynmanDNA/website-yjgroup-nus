@@ -88,7 +88,7 @@
 <p>TransMaxCal program calculates the DNA extension, linking number and structural state under given force and torque constraints</p>
 
 DNA_length - DNA length in B-DNA state in [&gt;0nm] units:<br />
-  <input type="number" id="DNAlength" name="DNAlength" step="any" placeholder=">0nm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
+  <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Force - in [0~30pN] units:<br />
   <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
   Torque - in [-30~+50pN*nm] units:<br />
@@ -127,9 +127,9 @@ function getFormValue(id) {
 }
 
 function newCalwindow() {
-    var DNAlength = getFormValue('DNAlength');
-    var force = getFormValue('force');
-    var torque = getFormValue('torque');
+    var DNAlength = parseInt(getFormValue('DNAlength'));
+    var force = parseFloat(getFormValue('force'));
+    var torque = parseFloat(getFormValue('torque'));
     var maxMode = 14;
     var myWindow = window.open(
         "http://137.132.69.48:7717/jsontest?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=14", 
@@ -139,14 +139,16 @@ function newCalwindow() {
 }
 
 function checkRequirement() {
-    var DNA_length = parseFloat(document.getElementById('DNAlength').value);
+    var DNA_length = parseInt(document.getElementById('DNAlength').value);
     var Force = parseFloat(document.getElementById('force').value);
     var Torque = parseFloat(document.getElementById('torque').value);
     var CalBtn = document.getElementById('calbtn');
+    var isNumber = /^[0-9]+$/;
     CalBtn.disabled = !(
+        document.getElementById('DNAlength').value.match(isNumber) &&
         DNA_length >0 &&
         Force <30 &&
-        Force >0 && 
+        Force >0 &&
         Torque <=50 &&
         Torque >=-30
     );
