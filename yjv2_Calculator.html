@@ -17,13 +17,28 @@
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
 <style>
-  input[type="submit"]:disabled {
-    color: red;
-    cursor:none;
+  input {
+    width: 80%;
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 20px; /* Add some padding */
+    border: 2px solid black;
+    margin-bottom: 12px; /* Add some space below the input */
   }
+
+  input:focus {
+    border: 2px solid #6d8bad;
+  }
+
+  input[type="submit"]:disabled {
+    color: lightgray;
+    cursor:none;
+    border: 2px solid lightgray;
+  }
+
   input[type="submit"]:disabled:hover {
     background-color:white;
-    color:red;
+    color:lightgray;
+    border: 2px solid lightgray;
   }
 </style>
 </head>
@@ -79,22 +94,42 @@
 
 <h2>DNA Transfer Matrix Calculator</h2>
 
-<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="https://doi.org/10.3390/polym9020074" title="doi" target="_blank">link</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="https://doi.org/10.1103/PhysRevE.94.032404" title="doi" target="_blank">link</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters in the upcoming paper, to be published in 2018.</p>
-
-<p>This page is the online implementation of the transfer matrix computation developed above. The online calculator is still in development. We hope to roll out the online calculation feature by <b>mid-April.</b> </p>
+<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="https://doi.org/10.3390/polym9020074" title="doi" target="_blank">link</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="https://doi.org/10.1103/PhysRevE.94.032404" title="doi" target="_blank">link</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters, to be published in 2018.</p>
 
 <hr />
-<pre>This version is for development testing:</pre>
-<p>TransMaxCal program calculates the DNA extension, linking number and structural state under given force and torque constraints</p>
+<h2>README</h2>
+<pre>Current version:</pre>
+<pre>Updated Feb 15th 2018</pre>
+<p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
+<p>TransMatCal program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
+<div class="half">
+  <img src="photos/calculator/Theory1.jpg" alt="Theory screenshot 1" />
+</div>
+<div class="half">
+  <img src="photos/calculator/Theory2.jpg" alt="Theory screenshot 2" />
+</div>
 
-DNA_length - DNA length in B-DNA state in [&gt;0nm] units:<br />
-  <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
-  Force - in [0~30pN] units:<br />
-  <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
-  Torque - in [-30~+50pN*nm] units:<br />
-  <input type="number" id="torque" name="torque" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirement()" onblur="checkRequirement()" style="width:80%; border: 2px solid #000;" /><br />
-  max_mode - number of modes taken into account in the transfer matrix calculations (default = 14)<br />
-  <input type="text" id="maxMode" name="maxMode" value="14" style="width:80%; border: 2px solid #000;" READONLY /><br />
+<p style="clear:both;">TransMatCal takes in 4 parameters:<span class="pubtitle"> DNA length, force, torque, and max mode.</span></p>
+
+<p><span class="pubtitle">DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
+
+  <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
+  <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
+
+<p><span class="pubtitle">Force</span> is currently set to a floating number between 0 to 30 pN.</p>
+
+  <i>Force - in [0~30pN] units:</i><br />
+  <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
+
+<p><span class="pubtitle">Torque</span> is currently set to a floating number between -30 to +50 pN*nm.</p>
+
+  <i>Torque - in [-30~+50pN*nm] units:</i><br />
+  <input type="number" id="torque" name="torque" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
+
+<p><span class="pubtitle">Max mode</span> is the number of modes taken into account in the transfer matrix calculations. The current range implemented in our calculator is 10-20. The default number of 14 should be sufficient in most cases. Please note that lower max_mode will result in less precise calculation results, especially in the case of high force and torque applied to DNA. For example, in the case of 35-50 pN*nm torques, lower value of max_mode will lead to shift in theoretically predicted transition boundary between B- and P-DNA forms.</p>
+
+  <i>max_mode - number of modes taken into account in the transfer matrix calculations:</i><br />
+  <input type="number" id="maxMode" name="maxMode" step="1" placeholder="10-20" value="14" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
   <input type="submit" id="calbtn" onclick="newCalwindow()" value="Calculate" class="sortbutton" disabled />
 
@@ -130,27 +165,31 @@ function newCalwindow() {
     var DNAlength = parseInt(getFormValue('DNAlength'));
     var force = parseFloat(getFormValue('force'));
     var torque = parseFloat(getFormValue('torque'));
-    var maxMode = 14;
+    var maxMode = parseInt(getFormValue('maxMode'));
     var myWindow = window.open(
-        "http://137.132.69.48:7717/jsontest?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=14", 
+        "http://137.132.69.48:7717/jsontest?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=" + maxMode, 
         "_blank",
         "toolbar=yes,scrollbars=yes,resizable=yes,top=10,left=10,width=700,height=620"
     );
 }
 
 function checkRequirement() {
-    var DNA_length = parseInt(document.getElementById('DNAlength').value);
-    var Force = parseFloat(document.getElementById('force').value);
-    var Torque = parseFloat(document.getElementById('torque').value);
+    var DNA_length = parseInt(getFormValue('DNAlength'));
+    var Force = parseFloat(getFormValue('force'));
+    var Torque = parseFloat(getFormValue('torque'));
+    var MaxMode = parseInt(getFormValue('maxMode'));
     var CalBtn = document.getElementById('calbtn');
     var isNumber = /^[0-9]+$/;
     CalBtn.disabled = !(
-        document.getElementById('DNAlength').value.match(isNumber) &&
+        getFormValue('DNAlength').match(isNumber) &&
         DNA_length >0 &&
         Force <30 &&
         Force >0 &&
         Torque <=50 &&
-        Torque >=-30
+        Torque >=-30 &&
+        getFormValue('maxMode').match(isNumber) &&
+        MaxMode >=10 &&
+        MaxMode <=20
     );
 }
 </script>
