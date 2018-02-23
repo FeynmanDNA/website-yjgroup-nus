@@ -98,8 +98,8 @@
 
 <hr />
 <h2>README</h2>
-<pre>Current version:</pre>
-<pre>Updated Feb 15th 2018</pre>
+<pre>Current Version: Feb 23rd 2018</pre>
+<small>History: Feb 15th 2018, first version online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state;</small>
 <p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
 <p>TransMatCal program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
 <div class="half">
@@ -116,10 +116,10 @@
   <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
   <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
-<p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 30 pN.</p>
+<p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 200 pN. So now the calculator includes DNA overstretching transitions.</p>
 
-  <i>Force - in [0~30pN] units:</i><br />
-  <input type="number" id="force" name="force" step="any" placeholder="<30pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
+  <i>Force - in [0~200pN] units:</i><br />
+  <input type="number" id="force" name="force" step="any" placeholder="<200pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
 <p><span class="pubtitle">Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
 
@@ -183,7 +183,7 @@ function checkRequirement() {
     CalBtn.disabled = !(
         getFormValue('DNAlength').match(isNumber) &&
         DNA_length >0 &&
-        Force <30 &&
+        Force <200 &&
         Force >0 &&
         Torque <=50 &&
         Torque >=-30 &&
