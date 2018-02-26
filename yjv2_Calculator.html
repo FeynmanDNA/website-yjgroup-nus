@@ -98,8 +98,8 @@
 
 <hr />
 <h2>README</h2>
-<pre>Current Version: Feb 23rd 2018</pre>
-<small>History: Feb 15th 2018, first version online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state;</small>
+<pre>Current Version: Feb 26th 2018</pre>
+<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state; Feb 26th 2018, force can now be an array of 20 values for iteration, and new force-extension curve plot;</small>
 <p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
 <p>TransMatCal program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
 <div class="half">
@@ -116,10 +116,10 @@
   <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
   <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
-<p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 200 pN. So now the calculator includes DNA overstretching transitions.</p>
+<p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 200 pN, so the calculator includes DNA overstretching transitions. You can also key in a list of force values, separated by commas(,). For example, "1,2,3,4,5" or "0.01,0.03,1,10,60,70,199" will make the calculator iterates over the list of force values (maximum 20 values per list).</p>
 
-  <i>Force - in [0~200pN] units:</i><br />
-  <input type="number" id="force" name="force" step="any" placeholder="<200pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
+  <i>Force/Force list - each in [0~200pN] units:</i><br />
+  <input type="text" id="force" name="force" placeholder="<200pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
 <p><span class="pubtitle">Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
 
@@ -163,19 +163,35 @@ function getFormValue(id) {
 
 function newCalwindow() {
     var DNAlength = parseInt(getFormValue('DNAlength'));
-    var force = parseFloat(getFormValue('force'));
+    var force = getFormValue('force').split(",").map(parseFloat);
     var torque = parseFloat(getFormValue('torque'));
     var maxMode = parseInt(getFormValue('maxMode'));
     var myWindow = window.open(
-        "http://137.132.69.48:7717/jsontest?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=" + maxMode, 
+        "http://137.132.69.48:7717/jsontest?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=" + maxMode,
         "_blank",
         "toolbar=yes,scrollbars=yes,resizable=yes,top=10,left=10,width=700,height=620"
     );
 }
 
+// allow user to key in fewer than 20 force values
+// separated by comma
+function checkRequirementForce() {
+    var forceArray = getFormValue('force').split(",").map(parseFloat);
+    if (forceArray.length>20) {
+        return false;
+    }
+    for (var i = 0; i < forceArray.length; i++) {
+        if (forceArray[i]>=200 || forceArray[i]<=0 || isNaN(forceArray[i])) {
+            return false;
+        }
+    }
+    // if all array values meet value range
+    // and array length fewer than 20
+    return true;
+}
+
 function checkRequirement() {
     var DNA_length = parseInt(getFormValue('DNAlength'));
-    var Force = parseFloat(getFormValue('force'));
     var Torque = parseFloat(getFormValue('torque'));
     var MaxMode = parseInt(getFormValue('maxMode'));
     var CalBtn = document.getElementById('calbtn');
@@ -183,8 +199,7 @@ function checkRequirement() {
     CalBtn.disabled = !(
         getFormValue('DNAlength').match(isNumber) &&
         DNA_length >0 &&
-        Force <200 &&
-        Force >0 &&
+        checkRequirementForce() &&
         Torque <=50 &&
         Torque >=-30 &&
         getFormValue('maxMode').match(isNumber) &&
