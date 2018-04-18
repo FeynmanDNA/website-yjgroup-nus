@@ -40,6 +40,48 @@
     color:lightgray;
     border: 2px solid lightgray;
   }
+
+  /* Thanks to w3schools for the code */
+  /* Style the tab */
+  .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+  }
+
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+      background-color: inherit;
+      float: left;
+      width: 50%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+  }
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+      background-color: #ddd;
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+      background-color: white;
+  }
+
+  .tab button.active:after {
+      content: none;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+  }
 </style>
 </head>
 
@@ -94,22 +136,30 @@
 
 <h2>DNA Transfer Matrix Calculator</h2>
 
-<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="https://doi.org/10.3390/polym9020074" title="doi" target="_blank">link</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="https://doi.org/10.1103/PhysRevE.94.032404" title="doi" target="_blank">link</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters, to be published in 2018.</p>
+<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="Publications/Polymers2017.pdf" title="Polymer2017pdf" target="_blank">pdf</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="Publications/PRE2016.pdf" title="PRE2016pdf" target="_blank">pdf</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters, to be published in 2018.</p>
+
+<div>
+  <img style="max-width:100%;" src="photos/calculator/Theory3.jpg" alt="Theory screenshot 1" />
+</div>
 
 <hr />
 <h2>README</h2>
-<pre>Current Version: Feb 26th 2018</pre>
-<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state; Feb 26th 2018, force can now be an array of 20 values for parallel iteration, and new force-extension curve plot;</small>
+<h4>Current Version: Apr 19th 2018 beta</h4>
 <p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
-<p>TransMatCal program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
-<div class="half">
-  <img src="photos/calculator/Theory1.jpg" alt="Theory screenshot 1" />
-</div>
-<div class="half">
-  <img src="photos/calculator/Theory2.jpg" alt="Theory screenshot 2" />
+<p>Our program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints, as well as nucleosome interactions</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
+<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state; Feb 26th 2018, force can now be an array of 20 values for parallel iteration, and new force-extension curve plot; Apr 19th 2018, papers pdf made available, updated UI</small>
+<hr />
+
+<!-- Tab links -->
+<div class="tab">
+  <h2 style="text-align:center;">Calculator</h2>
+  <button class="tablinks" onclick="openTab(event, 'woNucleosome')">Force-Torque-DNA</button>
+  <button class="tablinks" onclick="openTab(event, 'withNucleosome')">DNA-nucleosome</button>
 </div>
 
-<p style="clear:both;">TransMatCal takes in 4 parameters:<span class="pubtitle"> DNA length, force, torque, and max mode.</span></p>
+<!-- Tab content -->
+<div id="woNucleosome" class="tabcontent">
+<p style="clear:both;">This version is without nucleosome-DNA interaction, and it takes in 4 parameters:<span class="pubtitle"> DNA length, force, torque, and max mode.</span></p>
 
 <p><span class="pubtitle">DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
 
@@ -132,6 +182,12 @@
   <input type="number" id="maxMode" name="maxMode" step="1" placeholder="10-20" value="14" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
   <input type="submit" id="calbtn" onclick="newCalwindow()" value="Calculate" class="sortbutton" disabled />
+</div>
+
+<div id="withNucleosome" class="tabcontent">
+  <p>This version incorporates DNA-nucleosome interactions. Development in progress.</p>
+</div>
+
 
 <hr />
 <footer class="container">
@@ -156,6 +212,29 @@
   gtag('config', 'UA-48967212-2');
 </script>
 <script src="yjv2.js"></script>
+<script>
+function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
 <script>
 function getFormValue(id) {
     return document.getElementById(id).value;
