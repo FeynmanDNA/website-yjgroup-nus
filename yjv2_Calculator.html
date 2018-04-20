@@ -136,47 +136,57 @@
 
 <h2>DNA Transfer Matrix Calculator</h2>
 
-<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group. The implementation of the theory is published in <span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="Publications/Polymers2017.pdf" title="Polymer2017pdf" target="_blank">pdf</a></span>, and also in <span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="Publications/PRE2016.pdf" title="PRE2016pdf" target="_blank">pdf</a></span>. Artem is currently working on a new paper that will include more protein interaction parameters, to be published in 2018.</p>
+<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group:</p>
+
+<ul>
+  <li><span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="Publications/PRE2016.pdf" title="PRE2016pdf" target="_blank">pdf</a></span></li>
+  <li><span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="Publications/Polymers2017.pdf" title="Polymer2017pdf" target="_blank">pdf</a></span></li>
+  <li> <span class="pubtitle">Transfer-matrix calculations of the effects of tension and torque constraints on DNA-protein interactions </span> <span class="pubauthor">AK Efremov, J Yan </span> <span class="pubjournal">arXiv preprint arXiv:1802.01437 </span> <span class="doi"><a href="https://arxiv.org/abs/1802.01437" title="doi" target="_blank">link</a></span> (<i>in review</i>)
+  </li>
+</ul>
 
 <div>
   <img style="max-width:100%;" src="photos/calculator/Theory3.jpg" alt="Theory screenshot 1" />
+  <p><b>Figure above - DNA phase diagram using the data from our calculator:</b> Solid curves indicate transition boundaries between extended
+  (B, L, P, S) and supercoiled (sc-B, sc-L, sc-P) states of DNA predicted by the transfer-matrix calculations.
+  The resulting phase diagram demonstrates good agreement with the existing experimental data (circles) <i>[figure from Polymers 2017 paper]</i></p>
 </div>
 
 <hr />
 <h2>README</h2>
-<h4>Current Version: Apr 19th 2018 beta</h4>
+<h4>Current Version: Apr 20th 2018 beta</h4>
 <p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
-<p>Our program calculates the <b>DNA extension, linking number and structural state under given force and torque constraints, as well as nucleosome interactions</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
-<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN; and one more change - the program now outputs the DNA superhelical density instead of the linking number, which is more informative physical parameter characterizing the DNA state; Feb 26th 2018, force can now be an array of 20 values for parallel iteration, and new force-extension curve plot; Apr 19th 2018, papers pdf made available, updated UI</small>
+<p>Our program calculates the <b>DNA extension, linking number change and structural state of DNA under given force and torque constraints in the absence or presence of DNA interactions with protein complexes, such as histone octamers that form nucleosomes upon binding to DNA</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper and 2017 Polymers paper for more information on the theory and algorithm.</p>
+<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN, program now outputs the DNA superhelical density instead of the linking number; Feb 26th 2018, force can now be an array of 20 values for parallel iteration, and new force-extension curve plot; Apr 19th 2018, papers pdf made available, update UI</small>
 <hr />
 
 <!-- Tab links -->
 <div class="tab">
   <h2 style="text-align:center;">Calculator</h2>
-  <button class="tablinks" onclick="openTab(event, 'woNucleosome')">Force-Torque-DNA</button>
+  <button class="tablinks" onclick="openTab(event, 'woNucleosome')">Bare DNA</button>
   <button class="tablinks" onclick="openTab(event, 'withNucleosome')">DNA-nucleosome</button>
 </div>
 
 <!-- Tab content -->
 <div id="woNucleosome" class="tabcontent">
-<p style="clear:both;">This version is without nucleosome-DNA interaction, and it takes in 4 parameters:<span class="pubtitle"> DNA length, force, torque, and max mode.</span></p>
+  <p style="clear:both;">This version of the program calculates the conformation of bare DNA under force and torque constraints. In the calculations, DNA is allowed to transit between 4 DNA structural states: B-, L-, P- and S-DNA. The program inputs are the following 4 parameters:<span class="pubtitle"> DNA length, force, torque, and max mode.</span></p>
 
-<p><span class="pubtitle">DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
+  <p><span class="pubtitle">DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
 
   <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
   <input type="number" id="DNAlength" name="DNAlength" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
-<p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 200 pN, so the calculator includes DNA overstretching transitions. You can also key in a list of force values, separated by commas(,). For example, "1,2,3,4,5" or "0.01,0.03,1,10,60,70,199" will make the calculator iterates over the list of force values (maximum 20 values per list).</p>
+  <p><span class="pubtitle">Force</span> is currently set to a floating point number between 0 to 200 pN, so the calculator includes DNA overstretching transitions. You can also key in a list of force values, separated by commas(,). For example, "1,2,3,4,5" or "0.01,0.03,1,10,60,70,199" will make the calculator iterates over the list of force values (maximum 20 values per list).</p>
 
   <i>Force/Force list - each in [0~200pN] units:</i><br />
   <input type="text" id="force" name="force" placeholder="<200pN" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
-<p><span class="pubtitle">Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
+  <p><span class="pubtitle">Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
 
   <i>Torque - in [-30~+50pN*nm] units:</i><br />
   <input type="number" id="torque" name="torque" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
 
-<p><span class="pubtitle">Max mode</span> is the number of modes taken into account in the transfer matrix calculations. The current range implemented in our calculator is 10-20. The default number of 14 should be sufficient in most cases. Please note that lower max_mode will result in less precise calculation results, especially in the case of high force and torque applied to DNA. For example, in the case of 35-50 pN*nm torques, lower value of max_mode will lead to shift in theoretically predicted transition boundary between B- and P-DNA forms.</p>
+  <p><span class="pubtitle">Max mode</span> is the number of modes taken into account in the transfer matrix calculations. The current range implemented in our calculator is 10-20. The default number of 14 should be sufficient in most cases. Please note that lower max_mode will result in less precise calculation results, especially in the case of high force and torque applied to DNA. For example, in the case of 35-50 pN*nm torques, lower value of max_mode will lead to shift in theoretically predicted transition boundary between B- and P-DNA forms.</p>
 
   <i>max_mode - number of modes taken into account in the transfer matrix calculations:</i><br />
   <input type="number" id="maxMode" name="maxMode" step="1" placeholder="10-20" value="14" onkeyup="checkRequirement()" onblur="checkRequirement()" /><br />
@@ -185,7 +195,9 @@
 </div>
 
 <div id="withNucleosome" class="tabcontent">
-  <p>This version incorporates DNA-nucleosome interactions. Development in progress.</p>
+  <p style="clear:both;">In development stage. Launch in 2 weeks.</p>
+  <p>This version of the program calculates the conformation of DNA in the presence of nucleosome formation by histone octamers under force and torque constraints applied to the DNA. In the calculations, DNA is allowed to transit between 3 structural states: B-, L- and P-DNA. Nucleosomes are assumed to form only on B-DNA parts of the polymer. The program inputs are the following 5 parameters:<span class="pubtitle"> DNA length, force, torque, protein binding energy to DNA and max mode.</span></p>
+  <small>force range is 31pN integer, protein binding energy range right now is 40 kbT, but we can make it freely input -100-100kbT</small>
 </div>
 
 
