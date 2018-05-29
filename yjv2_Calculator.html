@@ -174,10 +174,10 @@
 <div id="woNucleosome" class="tabcontent">
   <p style="clear:both;"><b>Bare DNA version</b> of the program calculates the conformation of bare DNA under force and torque constraints. In the calculations, DNA is allowed to transit between 4 DNA structural states: B-, L-, P- and S-DNA. The program inputs are the following <span class="pubtitle">four</span> parameters:<span class="pubtitle"> DNA length, force, torque,</span> and<span class="pubtitle"> max mode</span>.</p>
 
-  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
+  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts positive integer as input.</p>
 
   <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
-  <input type="number" id="DNAlengthBare" name="DNAlengthBare" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
+  <input type="number" id="DNAlengthBare" name="DNAlengthBare" step="1" placeholder=">0nm positive integer" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
 
   <p><span class="pubtitle">2. Force</span> is currently set to a floating point number between 0 to 200 pN, so the calculator includes DNA overstretching transitions. You can also key in a list of force values, separated by commas(,). For example, "1, 2, 3, 4, 5" or "0.01, 0.03, 1, 10, 60, 70, 199" will make the calculator iterates over the list of force values (maximum 20 values per list).</p>
 
@@ -200,10 +200,10 @@
 <div id="withNucleosome" class="tabcontent">
   <p style="clear:both;"><b>DNA-nucleosome version</b> of the program calculates the conformation of DNA in the presence of nucleosome formation by histone octamers under force and torque constraints applied to the DNA. In the calculations, DNA is allowed to transit between 3 structural states: B-, L- and P-DNA. Nucleosomes are assumed to form only on B-DNA parts of the polymer. The program inputs are the following <b>5</b> parameters:<span class="pubtitle"> DNA length, force, torque, protein binding energy to DNA</span> and <span class="pubtitle">max mode</span>.</p>
 
-  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts non-negative integers as input.</p>
+  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts positive integer as input.</p>
 
   <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
-  <input type="number" id="DNAlengthWithNul" name="DNAlengthWithNul" step="1" placeholder=">0nm non-negative integer" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
+  <input type="number" id="DNAlengthWithNul" name="DNAlengthWithNul" step="1" placeholder=">0nm positive integer" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
 
   <p><span class="pubtitle">2. Force</span> is currently set to a floating point number between 0 to 31pN. You can also key in a list of force values, separated by commas(,). For example, "1, 2, 3, 4, 5" or "0.01, 0.03, 1, 10, 15" will make the calculator iterates over the list of force values (maximum 5 values per list).</p>
 
