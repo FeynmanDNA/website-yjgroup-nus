@@ -1,1 +1,79 @@
-function debounce(e,t,n){var l;return function(){var o=this,a=arguments,d=n&&!l;clearTimeout(l),l=setTimeout(function(){l=null,n||e.apply(o,a)},t),d&&e.apply(o,a)}}function openSidebar(){document.getElementById("mySidebar").style.display="block",document.getElementById("myOverlay").style.display="block"}function closeSidebar(){document.getElementById("mySidebar").style.display="none",document.getElementById("myOverlay").style.display="none"}function scrollTopCn(){document.body.scrollTop>100||document.documentElement.scrollTop>100?(document.getElementById("myTop").classList.add("floatbanner","animate-opacity"),document.getElementById("myIntro").classList.add("show-inline-block")):(document.getElementById("myIntro").classList.remove("show-inline-block"),document.getElementById("myTop").classList.remove("floatbanner","animate-opacity"))}function showPanel(){this.classList.toggle("active");var e=this.nextElementSibling;"block"===e.style.display?e.style.display="none":e.style.display="block"}function searchPubTable(){var e,t,n,l,o,a;for(e=document.getElementById("pubSearch").value.toUpperCase(),t=document.getElementById("pubTable").getElementsByTagName("tr"),n=0;n<t.length;n++)td0=t[n].getElementsByTagName("td")[0],td1=t[n].getElementsByTagName("td")[1],(td0||td1)&&(l=td0.childNodes[0].nextElementSibling.childNodes[0].nodeValue,o=td0.childNodes[1].nextElementSibling.childNodes[0].nodeValue,a=td0.childNodes[3].nextElementSibling.childNodes[0].nodeValue,(l.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase()+o.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase()+a.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase()).indexOf(e)>-1?t[n].style.display="":td1.innerHTML.indexOf(e)>-1?t[n].style.display="":t[n].style.display="none")}function sortTable(e){var t,n,l,o,a,d,s=0;for(t=document.getElementById("pubTable"),l=!0,d="asc";l;){for(l=!1,n=t.getElementsByTagName("tr"),o=1;o<n.length-1;o++)if(a=!1,tdnx=n[o].getElementsByTagName("td")[e],tdny=n[o+1].getElementsByTagName("td")[e],0==e?(tdnamX=tdnx.childNodes[0].nextElementSibling.childNodes[0].nodeValue.toLowerCase(),tdnamY=tdny.childNodes[0].nextElementSibling.childNodes[0].nodeValue.toLowerCase()):(tdnamX=tdnx.innerHTML,tdnamY=tdny.innerHTML),"asc"==d){if(tdnamX>tdnamY){a=!0;break}}else if("desc"==d&&tdnamX<tdnamY){a=!0;break}a?(n[o].parentNode.insertBefore(n[o+1],n[o]),l=!0,s++):0==s&&"asc"==d&&(d="desc",l=!0)}}function calBtnMove(){x=document.getElementById("calculatorAni"),xleft=x.offsetLeft,xleft<500?x.style.left=xleft+100+"px":x.style.left=xleft-300+"px"}function showSnackbar(){var e=document.getElementById("snackbar");e.className="snackshow",setTimeout(function(){e.className=e.className.replace("show","")},3e3)}window.onscroll=debounce(function(){scrollTopCn()},20),document.querySelectorAll(".accordion")[0].addEventListener("click",showPanel),document.querySelectorAll(".accordion")[1].addEventListener("click",showPanel);
+// this debounce function is by David Walsh
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Open and close sidebar on mobile screens
+function openSidebar() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+function closeSidebar() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+// onScroll Event is often fired a lot of times
+// so wrap a debounce() around it
+window.onscroll = debounce(function() {scrollTopCn()}, 20);
+// so limit the onscroll fire limit to N milliseconds
+function scrollTopCn() {
+  if (document.body.scrollTop > 100
+    || document.documentElement.scrollTop > 100)
+  {
+    document.getElementById("myTop")
+      .classList.add("floatbanner", "animate-opacity");
+    document.getElementById("myIntro")
+      .classList.add("show-inline-block");
+  } else {
+    document.getElementById("myIntro")
+      .classList.remove("show-inline-block");
+    document.getElementById("myTop")
+      .classList.remove("floatbanner", "animate-opacity");
+  }
+}
+
+// Accordions in SideBar
+/* this is for the accordion panel */
+document.querySelectorAll(".accordion")[0].addEventListener("click", showPanel);
+document.querySelectorAll(".accordion")[1].addEventListener("click", showPanel);
+function showPanel() {
+  /* Toggle between adding and removing the "active" class,
+   * to toggle the +/- of the panel */
+  this.classList.toggle("active");
+
+  /* Toggle between hiding and showing the active panel */
+  var accPanel = this.nextElementSibling;
+  if (accPanel.style.display === "block") {
+    accPanel.style.display = "none";
+  } else {
+    accPanel.style.display = "block";
+  }
+}
+
+// Calculator page the gray icon move on hover
+function calBtnMove() {
+  x = document.getElementById("calculatorAni");
+  xleft = x.offsetLeft;
+  if (xleft<500) {
+    x.style.left = (xleft+100) + "px";
+  } else {
+    x.style.left = (xleft-300) + "px";
+  }
+}
