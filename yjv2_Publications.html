@@ -16,6 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
+
 </head>
 
 
@@ -67,6 +68,8 @@
 
 <div class="container">
 
+<div id="ForIE"></div>
+
 <table id="pubTable">
   <thead>
   <tr class="publicationTrheader">
@@ -108,6 +111,20 @@ page: <span id="page"></span>
   gtag('config', 'UA-48967212-2');
 </script>
 <script src="yjv2.js"></script>
+<script>
+  // thanks for Liu Yanhui for raising this issue :D
+  // from stackoverflow:
+  // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769
+  // Internet Explorer 6-11
+  var isIE = /*@cc_on!@*/false || !!document.documentMode;
+  // for IE11
+  var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+  // true on IE11
+  // false on Edge and other IEs/browsers.
+  if (isIE || isIE11) {
+    document.getElementById("ForIE").innerHTML = "Please use a non-IE browser in order to view the publication list";
+  }
+</script>
 <script>
   // this pagination js is based on the codepen by Mark Gil Sumanlad
   var current_page = 1;
