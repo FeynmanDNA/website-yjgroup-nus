@@ -70,6 +70,14 @@
 
 <div id="ForIE"></div>
 
+Results per page:
+  <select id="PerPage" onchange="location.reload();">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+    <option value="all">All</option>
+  </select>
+
 <table id="pubTable">
   <thead>
   <tr class="publicationTrheader">
@@ -128,7 +136,12 @@ page: <span id="page"></span>
 <script>
   // this pagination js is based on the codepen by Mark Gil Sumanlad
   var current_page = 1;
-  var records_per_page = 10;
+
+  if (document.getElementById("PerPage").value==="all") {
+    var records_per_page = publicationList.length;
+  } else {
+    var records_per_page = document.getElementById("PerPage").value;
+  }
 
   function numPages() {
 	return Math.ceil(publicationList.length / records_per_page);
