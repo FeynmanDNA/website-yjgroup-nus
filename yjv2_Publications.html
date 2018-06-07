@@ -68,10 +68,11 @@
 
 <div class="container">
 
+<div id="totalPubs"></div>
 <div id="ForIE"></div>
 
 Results per page:
-  <select id="PerPage" onchange="location.reload();">
+  <select id="perPage" onchange="changePerPage()">
     <option value="10">10</option>
     <option value="20">20</option>
     <option value="50">50</option>
@@ -134,30 +135,35 @@ page: <span id="page"></span>
   }
 </script>
 <script>
+  document.getElementById("totalPubs").innerHTML = "<b>" + publicationList.length + "</b>" + " publications";
   // this pagination js is based on the codepen by Mark Gil Sumanlad
-  var current_page = 1;
+  var currentPage = 1;
+  var recordsPerPage = 10;
 
-  if (document.getElementById("PerPage").value==="all") {
-    var records_per_page = publicationList.length;
-  } else {
-    var records_per_page = document.getElementById("PerPage").value;
+  function changePerPage() {
+    if (document.getElementById("perPage").value==="all") {
+      recordsPerPage = publicationList.length;
+    } else {
+      recordsPerPage = document.getElementById("perPage").value;
+    }
+    changePage(1);
   }
 
   function numPages() {
-	return Math.ceil(publicationList.length / records_per_page);
+	return Math.ceil(publicationList.length / recordsPerPage);
   }
 
   function prevPage() {
-	if (current_page > 1) {
-	  current_page--;
-	  changePage(current_page);
+	if (currentPage > 1) {
+	  currentPage--;
+	  changePage(currentPage);
 	}
   }
 
   function nextPage() {
-    if (current_page < numPages()) {
-      current_page++;
-      changePage(current_page);
+    if (currentPage < numPages()) {
+      currentPage++;
+      changePage(currentPage);
     }
   }
 
@@ -173,7 +179,7 @@ page: <span id="page"></span>
 
     listing_table.innerHTML = "";
 
-    for (var i = (page-1) * records_per_page; i < (page * records_per_page) && i < publicationList.length; i++) {
+    for (var i = (page-1) * recordsPerPage; i < (page * recordsPerPage) && i < publicationList.length; i++) {
         listing_table.innerHTML += publicationList[i].PublicationItem;
     }
     page_span.innerHTML = page + "/" + numPages();
