@@ -1092,7 +1092,7 @@ img.hover-shadow {
 /* The hero image */
 .hero-image {
     /* The image used */
-    background-image: url("/photos/calculator/Screenshot_2018-07-09_14-27-48.png");
+    background-image: url("./ScreenshotWebCal.png");
 
     /* Set a specific height */
     height: 500px;
