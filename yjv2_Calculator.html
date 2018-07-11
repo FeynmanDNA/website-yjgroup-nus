@@ -16,73 +16,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
-<style>
-  input {
-    width: 80%;
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 20px; /* Add some padding */
-    border: 2px solid black;
-    margin-bottom: 12px; /* Add some space below the input */
-  }
-
-  input:focus {
-    border: 2px solid #6d8bad;
-  }
-
-  input[type="submit"]:disabled {
-    color: lightgray;
-    cursor:none;
-    border: 2px solid lightgray;
-  }
-
-  input[type="submit"]:disabled:hover {
-    background-color:white;
-    color:lightgray;
-    border: 2px solid lightgray;
-  }
-
-  /* Thanks to w3schools for the code */
-  /* Style the tab */
-  .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
-  }
-
-  /* Style the buttons that are used to open the tab content */
-  .tab button {
-      background-color: inherit;
-      float: left;
-      width: 50%;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-  }
-
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-      background-color: #ddd;
-  }
-
-  /* Create an active/current tablink class */
-  .tab button.active {
-      background-color: white;
-  }
-
-  .tab button.active:after {
-      content: none;
-  }
-
-  /* Style the tab content */
-  .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-  }
-</style>
 </head>
 
 <body>
@@ -136,97 +69,19 @@
 
 <h2>DNA Transfer Matrix Calculator</h2>
 
-<p>The DNA transfer matrix calculator is based on the series of theoretical papers by Artem, Ricksen, and Yan Jie in our group:</p>
+<p>An online calculator that calculates the DNA extension, linking number change, and structural state of DNA under given force and torque constraints, with DNA interactions with protein complexes and other DNA-inserts.</p>
 
-<ul>
-  <li><span class="pubtitle">Transfer-matrix calculations of DNA polymer micromechanics under tension and torque constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Physical Review E </span> <span class="doi"><a href="Publications/PRE2016.pdf" title="PRE2016pdf" target="_blank">pdf</a></span></li>
-  <li><span class="pubtitle">Theoretical Methods for Studying DNA Structural Transitions under Applied Mechanical Constraints </span> <span class="pubauthor">AK Efremov, RS Winardhi, J Yan </span> <span class="pubjournal">Polymers </span> <span class="doi"><a href="Publications/Polymers2017.pdf" title="Polymer2017pdf" target="_blank">pdf</a></span></li>
-  <li> <span class="pubtitle">Transfer-matrix calculations of the effects of tension and torque constraints on DNA-protein interactions </span> <span class="pubauthor">AK Efremov, J Yan </span> <span class="pubjournal">arXiv preprint arXiv:1802.01437 </span> <span class="doi"><a href="https://arxiv.org/abs/1802.01437" title="doi" target="_blank">link</a></span> (<i>in review</i>)
-  </li>
-</ul>
-
-<div>
-  <img style="max-width:100%;" src="photos/calculator/Theory3.jpg" alt="Theory screenshot 1" />
-  <p><b>Figure above - DNA phase diagram using the data from our calculator:</b> Solid curves indicate transition boundaries between extended
-  (B, L, P, S) and supercoiled (sc-B, sc-L, sc-P) states of DNA predicted by the transfer-matrix calculations.
-  The resulting phase diagram demonstrates good agreement with the existing experimental data (circles) <i>[figure from Polymers 2017 paper]</i></p>
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>YJG Calculator Web App</h1>
+    <p>Beta Version 3 ready @ 2018 July 11th</p>
+    <a href="http://feynmanDNA.com:7717/"
+       target="_blank"
+       rel="noopener noreferrer">
+      <button class="sortbutton">Enter</button>
+    </a>
+  </div>
 </div>
-
-<hr />
-<h2>README</h2>
-<h4>Current Version: Apr 23rd 2018</h4>
-<p>Contributors: Artem Efremov, Ladislav Hovan, Yang Kaiyuan, Olafs Vandans, Tang Qingnan, Lu Chen, Yan Jie</p>
-<p>Our program calculates the <b>DNA extension, linking number change and structural state of DNA under given force and torque constraints in the absence or presence of DNA interactions with protein complexes, such as histone octamers that form nucleosomes upon binding to DNA</b>. Please refer to Artem, Ricksen, and Yan Jie's 2016 PRE paper, 2017 Polymers paper and the ArXiv version of the 2018 paper for more information on the theory and algorithm.</p>
-
-<p><b>Note:</b> If our program generates a negative DNA extension value, this is not a program bug, rather this is an indication that DNA assumes a heavily supercoiled conformation under such conditions, for which transfer-matrix calculations may not produce correct values of the DNA extension and the DNA superhelical density linking number change. Thus, all of the program predictions under these conditions should be treated with due care.</p>
-
-<small>History: Feb 12th 2018, beta version with Octave calculator online; Feb 15th 2018, first version with C++ calculator online; Feb 23rd 2018, introduction of new bare DNA states, now S-DNA is included in the transfer-matrix calculations, increasing the program working range to ~ 0-200 pN, program now outputs the DNA superhelical density instead of the linking number; Feb 26th 2018, force can now be an array of 20 values for parallel iteration, and new force-extension curve plot; Apr 19th 2018, papers pdf made available, update UI; Apr 23rd 2018, DNA-nucleosome calculator online</small>
-<hr />
-
-<!-- Tab links -->
-<div class="tab">
-  <h2 style="text-align:center;">Calculator</h2>
-  <button class="tablinks" onclick="openTab(event, 'woNucleosome')">Bare DNA</button>
-  <button class="tablinks" onclick="openTab(event, 'withNucleosome')">DNA-nucleosome</button>
-</div>
-
-<!-- Tab content -->
-<div id="woNucleosome" class="tabcontent">
-  <p style="clear:both;"><b>Bare DNA version</b> of the program calculates the conformation of bare DNA under force and torque constraints. In the calculations, DNA is allowed to transit between 4 DNA structural states: B-, L-, P- and S-DNA. The program inputs are the following <span class="pubtitle">four</span> parameters:<span class="pubtitle"> DNA length, force, torque,</span> and<span class="pubtitle"> max mode</span>.</p>
-
-  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts positive integer as input.</p>
-
-  <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
-  <input type="number" id="DNAlengthBare" name="DNAlengthBare" step="1" placeholder=">0nm positive integer" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
-
-  <p><span class="pubtitle">2. Force</span> is currently set to a floating point number between 0 to 200 pN, so the calculator includes DNA overstretching transitions. You can also key in a list of force values, separated by commas(,). For example, "1, 2, 3, 4, 5" or "0.01, 0.03, 1, 10, 60, 70, 199" will make the calculator iterates over the list of force values (maximum 20 values per list).</p>
-
-  <i>Force/Force list - each in [0~200pN exclusive] units:</i><br />
-  <input type="text" id="forceBare" name="forceBare" placeholder="<200pN" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
-
-  <p><span class="pubtitle">3. Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
-
-  <i>Torque - in [&gt;=-30~&lt;=50pN*nm] units:</i><br />
-  <input type="number" id="torqueBare" name="torqueBare" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
-
-  <p><span class="pubtitle">4. Max mode</span> is the number of modes taken into account in the transfer matrix calculations. The current range implemented in our calculator is 10-20. The default number of 14 should be sufficient in most cases. Please note that lower max_mode will result in less precise calculation results, especially in the case of high force and torque applied to DNA. For example, in the case of 35-50 pN*nm torques, lower value of max_mode will lead to shift in theoretically predicted transition boundary between B- and P-DNA forms.</p>
-
-  <i>max_mode - number of modes taken into account in the transfer matrix calculations:</i><br />
-  <input type="number" id="maxModeBare" name="maxModeBare" step="1" placeholder="10-20" value="14" onkeyup="checkRequirementBare()" onblur="checkRequirementBare()" /><br />
-
-  <input type="submit" id="calbtnBare" onclick="newCalwindowBare()" value="Calculate" class="sortbutton" disabled />
-</div>
-
-<div id="withNucleosome" class="tabcontent">
-  <p style="clear:both;"><b>DNA-nucleosome version</b> of the program calculates the conformation of DNA in the presence of nucleosome formation by histone octamers under force and torque constraints applied to the DNA. In the calculations, DNA is allowed to transit between 3 structural states: B-, L- and P-DNA. Nucleosomes are assumed to form only on B-DNA parts of the polymer. The program inputs are the following <b>5</b> parameters:<span class="pubtitle"> DNA length, force, torque, protein binding energy to DNA</span> and <span class="pubtitle">max mode</span>.</p>
-
-  <p><span class="pubtitle">1. DNA length</span> is the contour length in B-DNA state in nm. The default size of individual DNA segment in the B-DNA state is 0.5 nm. The program accepts positive integer as input.</p>
-
-  <i>DNA_length - DNA length in B-DNA state in [&gt;0nm] units:</i><br />
-  <input type="number" id="DNAlengthWithNul" name="DNAlengthWithNul" step="1" placeholder=">0nm positive integer" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
-
-  <p><span class="pubtitle">2. Force</span> is currently set to a floating point number between 0 to 31pN. You can also key in a list of force values, separated by commas(,). For example, "1, 2, 3, 4, 5" or "0.01, 0.03, 1, 10, 15" will make the calculator iterates over the list of force values (maximum 5 values per list).</p>
-
-  <i>Force/Force list - each in [0~31pN exclusive] units:</i><br />
-  <input type="text" id="forceWithNul" name="forceWithNul" placeholder="<31pN" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
-
-  <p><span class="pubtitle">3. Torque</span> is currently set to a floating point number between -30 to +50 pN*nm.</p>
-
-  <i>Torque - in [&gt;=-30~&lt;=50pN*nm] units:</i><br />
-  <input type="number" id="torqueWithNul" name="torqueWithNul" step="any" placeholder="-30~50pNnm" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
-
-  <p><span class="pubtitle">4. Protein binding energy to DNA</span>.</p>
-  <i>Protein binding energy - in [-100~+100kB*T], default is 40kB*T units:</i><br />
-  <input type="number" id="proteinEnergy" name="proteinEnergy" step="any" placeholder="" value="40" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
-
-  <p><span class="pubtitle">5. Max mode</span> is the number of modes taken into account in the transfer matrix calculations. The current range implemented in our calculator is 10-20. The default number of 14 should be sufficient in most cases.</p>
-
-  <i>max_mode - number of modes taken into account in the transfer matrix calculations:</i><br />
-  <input type="number" id="maxModeWithNul" name="maxModeWithNul" step="1" placeholder="10-20" value="14" onkeyup="checkRequirementWithNul()" onblur="checkRequirementWithNul()" /><br />
-
-  <input type="submit" id="calbtnWithNul" onclick="newCalwindowWithNul()" value="Calculate" class="sortbutton" disabled />
-</div>
-
 
 <hr />
 <footer class="container">
@@ -251,132 +106,6 @@
   gtag('config', 'UA-48967212-2');
 </script>
 <script src="yjv2.js"></script>
-<script>
-function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
-
-<script>
-function getFormValue(id) {
-    return document.getElementById(id).value;
-}
-
-function newCalwindowBare() {
-    var DNAlength = parseInt(getFormValue('DNAlengthBare'));
-    var force = getFormValue('forceBare').split(",").map(parseFloat);
-    var torque = parseFloat(getFormValue('torqueBare'));
-    var maxMode = parseInt(getFormValue('maxModeBare'));
-    var myWindow = window.open(
-        "http://137.132.69.48:7717/Bare_DNA_Cal?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&maxMode=" + maxMode,
-        "_blank",
-        "toolbar=yes,scrollbars=yes,resizable=yes,top=10,left=10,width=700,height=620"
-    );
-}
-
-function newCalwindowWithNul() {
-    var DNAlength = parseInt(getFormValue('DNAlengthWithNul'));
-    var force = getFormValue('forceWithNul').split(",").map(parseFloat);
-    var torque = parseFloat(getFormValue('torqueWithNul'));
-    var proteinEnergy = parseFloat(getFormValue('proteinEnergy'));
-    var maxMode = parseInt(getFormValue('maxModeWithNul'));
-    var myWindow = window.open(
-        "http://137.132.69.48:7717/With_Nul_Cal?DNAlength=" + DNAlength + "&force=" + force + "&torque=" + torque + "&proteinEnergy=" + proteinEnergy + "&maxMode=" + maxMode,
-        "_blank",
-        "toolbar=yes,scrollbars=yes,resizable=yes,top=10,left=10,width=700,height=620"
-    );
-}
-
-// allow user to key in fewer than 20 force values for BareDNA version
-// separated by comma
-function checkRequirementForceBare() {
-    var forceArray = getFormValue('forceBare').split(",").map(parseFloat);
-    if (forceArray.length>20) {
-        return false;
-    }
-    for (var i = 0; i < forceArray.length; i++) {
-        if (forceArray[i]>=200 || forceArray[i]<=0 || isNaN(forceArray[i])) {
-            return false;
-        }
-    }
-    // if all array values meet value range
-    // and array length fewer than 20
-    return true;
-}
-
-// allow user to key in fewer than 5 force values for WithNuleosome version
-// separated by comma
-function checkRequirementForceWithNul() {
-    var forceArray = getFormValue('forceWithNul').split(",").map(parseFloat);
-    if (forceArray.length>5) {
-        return false;
-    }
-    for (var i = 0; i < forceArray.length; i++) {
-        if (forceArray[i]>=31 || forceArray[i]<=0 || isNaN(forceArray[i])) {
-            return false;
-        }
-    }
-    // if all array values meet value range
-    // and array length fewer than 10
-    return true;
-}
-
-function checkRequirementBare() {
-    var DNA_length = parseInt(getFormValue('DNAlengthBare'));
-    var Torque = parseFloat(getFormValue('torqueBare'));
-    var MaxMode = parseInt(getFormValue('maxModeBare'));
-    var CalBtn = document.getElementById('calbtnBare');
-    var isNumber = /^[0-9]+$/;
-    CalBtn.disabled = !(
-        getFormValue('DNAlengthBare').match(isNumber) &&
-        DNA_length >0 &&
-        checkRequirementForceBare() &&
-        Torque <=50 &&
-        Torque >=-30 &&
-        getFormValue('maxModeBare').match(isNumber) &&
-        MaxMode >=10 &&
-        MaxMode <=20
-    );
-}
-
-function checkRequirementWithNul() {
-    var DNA_length = parseInt(getFormValue('DNAlengthWithNul'));
-    var Torque = parseFloat(getFormValue('torqueWithNul'));
-    var ProteinEnergy = parseFloat(getFormValue('proteinEnergy'));
-    var MaxMode = parseInt(getFormValue('maxModeWithNul'));
-    var CalBtn = document.getElementById('calbtnWithNul');
-    var isNumber = /^[0-9]+$/;
-    CalBtn.disabled = !(
-        getFormValue('DNAlengthWithNul').match(isNumber) &&
-        DNA_length >0 &&
-        checkRequirementForceWithNul() &&
-        Torque <=50 &&
-        Torque >=-30 &&
-        ProteinEnergy >= -100 &&
-        ProteinEnergy <= 100 &&
-        getFormValue('maxModeWithNul').match(isNumber) &&
-        MaxMode >=10 &&
-        MaxMode <=20
-    );
-}
-</script>
 <noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
 </body>
 </html>

@@ -1087,6 +1087,39 @@ img.hover-shadow {
   left:9px;
 }
 
+/* 4.4 Calculator page*/
+/* from https://www.w3schools.com/howto/howto_css_hero_image.asp
+/* The hero image */
+.hero-image {
+    /* The image used */
+    background-image: url("/photos/calculator/Screenshot_2018-07-09_14-27-48.png");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-text h1, .hero-text p {
+  background-color: gray;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
 
 /* 5.responsive design and media queries */
 /* Mobile first design */
