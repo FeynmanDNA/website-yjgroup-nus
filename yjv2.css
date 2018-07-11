@@ -1092,7 +1092,7 @@ img.hover-shadow {
 /* The hero image */
 .hero-image {
     /* The image used */
-    background-image: url("./ScreenshotWebCal.png");
+    background: url("./ScreenshotWebCal.png");
 
     /* Set a specific height */
     height: 500px;
@@ -1101,6 +1101,9 @@ img.hover-shadow {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     position: relative;
 }
 
