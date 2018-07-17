@@ -763,6 +763,8 @@ img.researchpage {
 
 
 /*4.1 publication tables */
+/* since Jul 17th 2018, publication change to jQuery library Datatables,
+   but these css classes are used elsewhere, so do not modify them */
 .pubtitle {
   color: #3888b4;
   font-weight:bold;
@@ -772,46 +774,6 @@ img.researchpage {
 }
 .pubjournal {
   font-weight:bold;
-}
-.doi a {
-  color: #067406;
-}
-
-#pubSearch {
-  background-image: url('./Vector_search_icon.jpg'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 2px solid black;
-  margin-bottom: 12px; /* Add some space below the input */
-}
-
-#pubSearch:focus {
-  border: 2px solid #6d8bad;
-}
-
-#pubTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  line-height: 1.2;
-}
-
-#pubTable th, #pubTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
-}
-
-#pubTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
-}
-
-#pubTable tr.publicationTrheader, #pubTable tr:hover {
-  /* Add a grey background color to the table header and on hover */
-  background-color: #f1f1f1;
 }
 
 .sortbutton {
@@ -917,8 +879,8 @@ img.researchpage {
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.prevImg,
+.nextImg {
   display:none;
   cursor: pointer;
   position: absolute;
@@ -938,14 +900,14 @@ img.researchpage {
 }
 
 /* Position the "next button" to the right */
-.next {
+.nextImg {
   right: 0;
   border-radius: 30px 0 0 30px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
+.prevImg:hover,
+.nextImg:hover {
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
 }

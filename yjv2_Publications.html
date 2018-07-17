@@ -16,7 +16,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="yjv2.css" />
   <link rel="shortcut icon" href="favicon.ico" />
-
+  <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!--local fallback for jquery-->
+  <script>window.jQuery || document.write('<script src="https://www.physics.nus.edu.sg/~biosmm/Publications/jquery-3.3.1.min.js">\x3C/script>')</script>
+  <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 </head>
 
 
@@ -68,32 +75,21 @@
 
 <div class="container">
 
-<div id="totalPubs"></div>
-<div id="ForIE"></div>
-
-Results per page:
-  <select id="perPage" onchange="changePerPage()">
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="50">50</option>
-    <option value="all">All</option>
-  </select>
-
-<table id="pubTable">
+<table id="publicationTable" class="display">
   <thead>
-  <tr class="publicationTrheader">
-    <th style="width:80%;">Title</th>
-    <th style="width:20%;">Year</th>
-  </tr>
+    <tr>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Journal</th>
+      <th>Year</th>
+      <th>DOI</th>
+    </tr>
   </thead>
-
-  <tbody id="listingTable">
+  <tbody>
   </tbody>
 </table>
 
-<button class="sortbutton" onclick="prevPage()" id="btn_prev">Prev</button>
-<button class="sortbutton" onclick="nextPage()" id="btn_next">Next</button>
-page: <span id="page"></span>
+<br />
 
 <hr />
 <footer class="container">
@@ -109,7 +105,32 @@ page: <span id="page"></span>
 </div><!--main-->
 
 <!-- List of Publications -->
-<script src="PublicationList/Publications.js"></script>
+<script src="Publications/Publications.js">
+  //this is where the publication table's data are stored
+  //edit this data file to update the pulication
+</script>
+<script>
+  $(document).ready(function() {
+    $('#publicationTable').DataTable({
+      data: data,
+      columns: [
+        { data: 'Title' },
+        { data: 'Authors' },
+        { data: 'Journal' },
+        { data: 'Year' },
+        {
+          data: 'DOI',
+          render: function(data, type, row, meta) {
+            if(type === 'display'){
+              data = '<a style="color: #067406" href="' + data + '" ' + 'target="_blank" ' + 'rel="noopener noreferrer"' + '>' + 'Link' + '</a>';
+            }
+            return data;
+         }
+        }
+      ]
+    });
+  });
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48967212-2"></script>
 <script>
@@ -120,88 +141,7 @@ page: <span id="page"></span>
   gtag('config', 'UA-48967212-2');
 </script>
 <script src="yjv2.js"></script>
-<script>
-  // thanks for Liu Yanhui for raising this issue :D
-  // from stackoverflow:
-  // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769
-  // Internet Explorer 6-11
-  var isIE = /*@cc_on!@*/false || !!document.documentMode;
-  // for IE11
-  var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-  // true on IE11
-  // false on Edge and other IEs/browsers.
-  if (isIE || isIE11) {
-    document.getElementById("ForIE").innerHTML = "Please use a non-IE browser in order to view the publication list";
-  }
-</script>
-<script>
-  document.getElementById("totalPubs").innerHTML = "<b>" + publicationList.length + "</b>" + " publications";
-  // this pagination js is based on the codepen by Mark Gil Sumanlad
-  var currentPage = 1;
-  var recordsPerPage = 10;
 
-  function changePerPage() {
-    if (document.getElementById("perPage").value==="all") {
-      recordsPerPage = publicationList.length;
-    } else {
-      recordsPerPage = document.getElementById("perPage").value;
-    }
-    changePage(1);
-  }
-
-  function numPages() {
-	return Math.ceil(publicationList.length / recordsPerPage);
-  }
-
-  function prevPage() {
-	if (currentPage > 1) {
-	  currentPage--;
-	  changePage(currentPage);
-	}
-  }
-
-  function nextPage() {
-    if (currentPage < numPages()) {
-      currentPage++;
-      changePage(currentPage);
-    }
-  }
-
-  function changePage(page) {
-    var btn_next = document.getElementById("btn_next");
-    var btn_prev = document.getElementById("btn_prev");
-    var listing_table = document.getElementById("listingTable");
-    var page_span = document.getElementById("page");
-
-    // Validate page
-    if (page < 1) page = 1;
-    if (page > numPages()) page = numPages();
-
-    listing_table.innerHTML = "";
-
-    for (var i = (page-1) * recordsPerPage; i < (page * recordsPerPage) && i < publicationList.length; i++) {
-        listing_table.innerHTML += publicationList[i].PublicationItem;
-    }
-    page_span.innerHTML = page + "/" + numPages();
-
-    if (page == 1) {
-        btn_prev.disabled = true;
-    } else {
-        btn_prev.disabled = false;
-    }
-
-    if (page == numPages()) {
-        btn_next.disabled = true;
-    } else {
-        btn_next.disabled = false;
-    }
-  }
-
-
-  window.onload = function() {
-    changePage(1);
-  };
-</script>
 <noscript>Please enable JavaScript in your browser, or you can switch to a browser that supports JavaScript.</noscript>
 </body>
 </html>
