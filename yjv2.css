@@ -1051,6 +1051,8 @@ img.hover-shadow {
 
 /* 4.4 Calculator page*/
 /* from https://www.w3schools.com/howto/howto_css_hero_image.asp
+ * and a codpen by Rosa
+ * https://codepen.io/RRoberts/pen/zBpNoK?editors=1100
 /* The hero image */
 .hero-image {
     /* The image used */
@@ -1072,11 +1074,19 @@ img.hover-shadow {
 /* Place text in the middle of the image */
 .hero-text {
     text-align: center;
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
+    /* SLIDE IN DELAY */
+    transform: translate(-250%, -50%);
+    -webkit-transition: transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+}
+
+.hero-image:hover .hero-text {
     transform: translate(-50%, -50%);
-    color: white;
 }
 
 .hero-text h1, .hero-text p {
