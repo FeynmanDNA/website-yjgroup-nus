@@ -113,6 +113,7 @@
   $(document).ready(function() {
     $('#publicationTable').DataTable({
       data: data,
+      "order": [[ 3, "desc" ]],
       columns: [
         { data: 'Title' },
         { data: 'Authors' },
